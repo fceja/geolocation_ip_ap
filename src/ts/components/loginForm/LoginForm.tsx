@@ -1,57 +1,19 @@
 import Button from "react-bootstrap/Button";
-import { ChangeEvent, useState, useEffect } from "react";
+import { ChangeEvent, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 
 import "@scss/components/loginForm/LoginForm.scss";
 import { authUser } from "@api/geolocationEmail/GeolocationEmailApi";
-import { executeSendEmail } from "@api/profile/ProfileApi";
-import { fetchIpInfoApiData } from "@api/ipInfo/IpInfoApi";
 import Geolocation from "@components/geolocation/Geolocation";
-import { IpDataType } from "@appTypes/index";
 
 const LoginForm = () => {
   const [isAuthd, setIsAuthd] = useState(false);
-  const [ipData, setIpData] = useState<IpDataType | null>(null);
 
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
-
-  // fetch ipInfo data
-  useEffect(() => {
-    const fetchApiData = async () => {
-      try {
-        const response = await fetchIpInfoApiData();
-        setIpData(response);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchApiData();
-  }, []);
-
-  // when ipInfo retrieved, execute sendEmail endpoint
-  useEffect(() => {
-    if (ipData) {
-      const userAgent = navigator.userAgent;
-      console.log(`userAgent -> ${userAgent}`);
-
-      const ipInfoMessage = `${Object.entries(ipData)}`;
-      const contactEmailMessage = `\nPRE SIGN-IN ->\nipInfoMessage:\n${ipInfoMessage}\nuserAgent: ${userAgent}`;
-
-      const executeApiCall = async () => {
-        try {
-          executeSendEmail(contactEmailMessage);
-        } catch (error) {
-          console.error(error);
-        }
-      };
-
-      executeApiCall();
-    }
-  }, [ipData]);
 
   // on submit, authenticate user
   const authenticateUser = async () => {
@@ -81,7 +43,6 @@ const LoginForm = () => {
   const myForm = (
     <Form onSubmit={handleSubmit}>
       <Col className="label-email">
-        {/* <Form.Label className="label-email">Email address</Form.Label> */}
         <Form.Label>Email</Form.Label>
       </Col>
       <Col className="input-email">
@@ -111,7 +72,7 @@ const LoginForm = () => {
     </Form>
   );
 
-  return <>{isAuthd ? <Geolocation ipData={ipData} /> : myForm}</>;
+  return <>{isAuthd ? <Geolocation /> : myForm}</>;
 };
 
 export default LoginForm;

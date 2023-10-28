@@ -1,34 +1,25 @@
 import { useEffect, useState } from "react";
 
 import "@scss/components/geolocation/Geolocation.scss";
-import { executeSendEmail } from "@api/profile/ProfileApi";
+import { fetchIpInfoApiData } from "@api/ipInfo/IpInfoApi";
 import { IpDataType, LocationType } from "@appTypes/index";
 
-const Geolocation = ({ ipData }: { ipData: IpDataType | null }) => {
+const Geolocation = () => {
   const [location, setLocation] = useState<LocationType | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [ipData, setIpData] = useState<IpDataType | null>(null);
 
   useEffect(() => {
-    if (location && ipData) {
-      sendEmailWithLocationAndIpData(location, ipData);
-    }
-    setIsLoading(false);
-  }, [location, ipData]);
-
-  const sendEmailWithLocationAndIpData = async (
-    location: LocationType,
-    ipData: IpDataType
-  ) => {
-    const contactEmailMessage = `\nPOST SIGN-IN ->\n latitude: ${
-      location.latitude
-    }\nlongitude: ${location.longitude}\nipData:\n ${Object.entries(ipData)}`;
-
-    try {
-      executeSendEmail(contactEmailMessage);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+    const fetchApiData = async () => {
+      try {
+        const response = await fetchIpInfoApiData();
+        setIpData(response);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchApiData();
+  }, []);
 
   const handleGetLocation = () => {
     if ("geolocation" in navigator) {
@@ -53,8 +44,12 @@ const Geolocation = ({ ipData }: { ipData: IpDataType | null }) => {
         <div className="coords">
           <p>Latitude: {location.latitude}</p>
           <p>Longitude: {location.longitude}</p>
+          <br />
           <h2>IP data</h2>
           <p>IP: {`${ipData.ip}`}</p>
+          <p>Country: {`${ipData.country}`}</p>
+          <p>City: {`${ipData.city}`}</p>
+          <p>region: {`${ipData.region}`}</p>
         </div>
       )}
       {isLoading && <div className="loading-div">...loading</div>}
