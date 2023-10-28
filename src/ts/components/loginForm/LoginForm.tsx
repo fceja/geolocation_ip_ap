@@ -9,6 +9,7 @@ import Geolocation from "@components/geolocation/Geolocation";
 
 const LoginForm = () => {
   const [isAuthd, setIsAuthd] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -28,9 +29,14 @@ const LoginForm = () => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setIsSubmitted(true);
     console.log(`handling submit`);
 
     await authenticateUser();
+  };
+
+  const loginFailedDiv = () => {
+    return <div className="failed-login">Login Failed</div>;
   };
 
   const handleInputChange = (
@@ -72,7 +78,12 @@ const LoginForm = () => {
     </Form>
   );
 
-  return <>{isAuthd ? <Geolocation /> : myForm}</>;
+  return (
+    <>
+      {isAuthd ? <Geolocation /> : myForm}
+      {isSubmitted && !isAuthd && loginFailedDiv()}
+    </>
+  );
 };
 
 export default LoginForm;
