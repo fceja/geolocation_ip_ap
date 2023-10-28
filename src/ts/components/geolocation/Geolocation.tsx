@@ -21,6 +21,12 @@ const Geolocation = () => {
     fetchApiData();
   }, []);
 
+  useEffect(() => {
+    if (location) {
+      setIsLoading(false);
+    }
+  }, [location]);
+
   const handleGetLocation = () => {
     if ("geolocation" in navigator) {
       setIsLoading(true);
