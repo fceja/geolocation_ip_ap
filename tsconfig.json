@@ -15,6 +15,7 @@
       "@/*": ["./src/*"],
       "@api/*": ["./src/ts/api/*"],
       "@components/*": ["./src/ts/components/*"],
+      "@context/*": ["./src/ts/context/*"],
       "@scss/*": ["./src/scss/*"],
       "@appTypes/*": ["./src/ts/types/*"],
       "@utils/*": ["./src/ts/utils/*"]

@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export type AxiosClientType = {
   baseUrl: string;
   timeout: number;
@@ -8,6 +10,7 @@ export type FormDataType = {
   email: string;
   password: string;
 };
+export type PayloadType = FormDataType;
 
 export type IpDataType = {
   ip: string;
@@ -25,3 +28,16 @@ export type LocationType = {
   latitude: number;
   longitude: number;
 };
+
+// types
+export type AuthProviderTypeProps = {
+  children: ReactNode;
+};
+
+//interfaces
+export interface AuthContextInterface {
+  isAuthenticated: boolean;
+  isLoggingIn: boolean;
+  isSubmitted: boolean;
+  validateCreds: (formData: FormDataType) => Promise<void>;
+}
