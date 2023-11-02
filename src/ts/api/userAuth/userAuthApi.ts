@@ -14,7 +14,7 @@ export const authUser = async (payload: PayloadType): Promise<boolean> => {
   try {
     // todo - need to add agi gateway endpoint, and update lambda
     console.log(`making call`);
-    const response = await apiClient.post("/user/authApp", {
+    const response = await apiClient.post("/user/auth/geolocationIp", {
       email: payload.email,
       password: payload.password,
     });
