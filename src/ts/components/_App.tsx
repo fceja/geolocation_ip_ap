@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import "@scss/components/_App.scss";
 import { AuthProvider } from "@context/AuthContext";
@@ -11,6 +11,7 @@ const App: React.FC = () => {
       <div className="app">
         <BrowserRouter>
           <Routes>
+            <Route path="/*" element={<Navigate to="/" />} />
             <Route path="/" element={<LoginForm />} />
           </Routes>
         </BrowserRouter>
