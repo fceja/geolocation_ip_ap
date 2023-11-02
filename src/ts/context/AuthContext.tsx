@@ -5,7 +5,7 @@ import {
   AuthProviderTypeProps,
   PayloadType,
 } from "@appTypes/index";
-import { authUser } from "@api/geolocationIp/GeolocationIpApi";
+import { authUser } from "@api/userAuth/userAuthApi";
 
 const AuthContext = createContext<AuthContextInterface | undefined>(undefined);
 

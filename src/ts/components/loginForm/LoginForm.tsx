@@ -62,7 +62,7 @@ const LoginForm = () => {
           </Col>
         </Form>
       )}
-      {isSubmitted && !isLoggingIn && (
+      {isSubmitted && isLoggingIn && (
         <div className="div-loggin-in">...loggin in</div>
       )}
       {isSubmitted && !isLoggingIn && !isAuthenticated && (

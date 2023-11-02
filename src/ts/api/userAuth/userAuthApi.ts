@@ -13,10 +13,13 @@ const apiClient = AxiosClient({
 export const authUser = async (payload: PayloadType): Promise<boolean> => {
   try {
     // todo - need to add agi gateway endpoint, and update lambda
-    const response = await apiClient.post("/auth/geolocationIp", {
+    console.log(`making call`);
+    const response = await apiClient.post("/user/authApp", {
       email: payload.email,
       password: payload.password,
     });
+    console.log(`response -> ${response}`);
+    console.log(`response entries -> ${Object.entries(response)}`);
     return response.headers["app-auth"];
   } catch (error) {
     return false;

@@ -11,6 +11,10 @@
     "moduleResolution": "node",
     "noEmit": false,
     "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "paths": {
       "@/*": ["./src/*"],
       "@api/*": ["./src/ts/api/*"],
