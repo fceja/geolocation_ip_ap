@@ -55,9 +55,15 @@ const LoginForm = () => {
             />
           </Col>{" "}
           <Col className="m-5 p-5">
-            <Button variant="primary" type="submit" className="m-3">
+            <Button
+              role="button"
+              variant="primary"
+              type="submit"
+              className="button-styles m-3"
+            >
               Submit
             </Button>
+            {/* <button class="button-80" role="button">Button 80</button> */}
           </Col>
         </Form>
       )}
