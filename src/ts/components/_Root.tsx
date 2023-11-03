@@ -1,3 +1,4 @@
+import "@scss/components/_Root.scss";
 import App from "./_App";
 
 const Root = () => {
