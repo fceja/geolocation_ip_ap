@@ -3,7 +3,9 @@ import { PayloadType } from "@appTypes/index";
 
 const apiClient = AxiosClient({
   baseUrl: `${process.env.REACT_APP_USER_AUTH_API_URL}`,
-  timeout: 5000,
+  timeout: process.env.REACT_APP_AXIOS_TIMEOUT
+    ? parseInt(process.env.REACT_APP_AXIOS_TIMEOUT)
+    : 30000,
   headers: {
     "X-Api-Key": `${process.env.REACT_APP_USER_AUTH_API_KEY}`,
     "App-Name": `${process.env.REACT_APP_USER_AUTH_APP_NAME_HEADER}`,
