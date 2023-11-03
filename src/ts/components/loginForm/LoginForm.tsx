@@ -19,7 +19,6 @@ const LoginForm = () => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     validateCreds(formData);
-    console.log(`handling submit`);
   };
 
   const handleInputChange = (

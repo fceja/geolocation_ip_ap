@@ -13,7 +13,7 @@ export const fetchIpInfoApiData = async (): Promise<IpDataType | null> => {
     const response: AxiosResponse = await apiClient.get(
       `?token=${process.env.REACT_APP_IP_INFO_API_TOKEN}`
     );
-    console.log("ipInfo api response:", response.data);
+    console.log("Response:", response.data);
     return response.data;
   } catch (error) {
     console.error("error:", error);
