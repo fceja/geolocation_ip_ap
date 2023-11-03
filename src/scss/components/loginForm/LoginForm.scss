@@ -68,6 +68,13 @@ div.div-failed-login {
   transform: scale(1.2);
   background: white;
   color: rgb(68, 94, 107);
+  border-color: rgb(68, 94, 107);
+  border-width: 0.125rem;
+}
+
+.button-styles:hover:active {
+  color: white;
+  background-color: rgb(186, 186, 186);
 }
 
 .button-styles:focus:before {
