@@ -39,17 +39,12 @@ button {
 .button-styles {
   background: $form-btn-background-color;
   border-color: $form-btn-border-color;
-  border-radius: 0.375rem;
   border-style: solid;
   border-width: 0.125rem;
   box-sizing: border-box;
   color: $form-btn-text-color;
-  cursor: pointer;
   display: inline-block;
   font-family: $form-font-family;
-  font-size: 1rem;
-  font-size: 1.125rem;
-  font-weight: 700;
   letter-spacing: 0.1em;
   position: relative;
   transition: transform 0.2s;
@@ -60,7 +55,7 @@ button {
   border-color: $form-btn-hover-border-color;
   border-width: 0.125rem;
   color: $form-btn-background-color;
-  transform: scale(1.2);
+  transform: scale(1.125);
 }
 
 .button-styles:not(:hover):active,
