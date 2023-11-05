@@ -69,7 +69,7 @@ const LoginForm = () => {
         </Form>
       )}
       {isSubmitted && isLoggingIn && (
-        <div className="div-loggin-in mt-1 text-center">...loggin in</div>
+        <div className="div-loggin-in mt-1 text-center">...logging in</div>
       )}
       {isSubmitted && !isLoggingIn && !isAuthenticated && (
         <div className="div-failed-login mt-1 text-center text-danger">
