@@ -1,9 +1,12 @@
+import { lazy, Suspense } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import "@scss/components/_App.scss";
 import { AuthProvider } from "@context/AuthContext";
 import LoginForm from "./loginForm/LoginForm";
-import Geolocation from "./geolocation/Geolocation";
+import Loading from "./loading/Loading";
+
+const Geolocation = lazy(() => import("./geolocation/Geolocation"));
 
 const App: React.FC = () => {
   return (
@@ -15,7 +18,10 @@ const App: React.FC = () => {
             <Route path="/" element={<LoginForm />} />
           </Routes>
         </BrowserRouter>
-        <Geolocation />
+
+        <Suspense fallback={<Loading />}>
+          <Geolocation />
+        </Suspense>
       </div>
     </AuthProvider>
   );

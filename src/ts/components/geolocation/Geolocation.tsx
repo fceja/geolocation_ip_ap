@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import "@scss/components/geolocation/Geolocation.scss";
 import { fetchIpInfoApiData } from "@api/ipInfo/IpInfoApi";
 import { IpDataType, LocationType } from "@appTypes/index";
+import Loading from "@components/loading/Loading";
 import { useAuth } from "@context/AuthContext";
 
 const Geolocation = () => {
@@ -65,7 +66,7 @@ const Geolocation = () => {
               <p>region: {`${ipData.region}`}</p>
             </div>
           )}
-          {isLoading && <div className="loading-div">...loading</div>}
+          {isLoading && <Loading />}
         </div>
       )}
     </>
