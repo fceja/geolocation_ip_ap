@@ -55,13 +55,13 @@ const LoginForm = () => {
               onChange={handleInputChange}
               className="rounded-3 lh-lg"
             />
-          </Col>{" "}
+          </Col>
           <Col className="btn-div text-center">
             <Button
               role="button"
               variant="primary"
               type="submit"
-              className="button-styles m-3 pl-2 pr-2"
+              className="button-styles m-3 pl-2 pr-2 fs-5 fw-bold rounded-3"
             >
               Submit
             </Button>
