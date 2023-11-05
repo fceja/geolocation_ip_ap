@@ -6,7 +6,7 @@ import { AuthProvider } from "@context/AuthContext";
 import LoginForm from "./loginForm/LoginForm";
 import Loading from "./loading/Loading";
 
-const Geolocation = lazy(() => import("./geolocation/Geolocation"));
+const Geolocation = lazy(() => import("@components/geolocation/Geolocation"));
 
 const App: React.FC = () => {
   return (

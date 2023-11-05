@@ -54,7 +54,7 @@ const Geolocation = () => {
             Get My Location
           </button>
           {location && ipData && (
-            <div className="coords">
+            <div className="coords mt-5">
               <h2>Coordinates</h2>
               <p>Latitude: {location.latitude}</p>
               <p>Longitude: {location.longitude}</p>
