@@ -29,7 +29,7 @@ const LoginForm = () => {
   };
 
   return (
-    <>
+    <div className="form-container">
       {!isAuthenticated && (
         <Form onSubmit={handleSubmit}>
           <Col className="label-email">
@@ -54,7 +54,7 @@ const LoginForm = () => {
               onChange={handleInputChange}
             />
           </Col>{" "}
-          <Col className="m-5 p-5">
+          <Col className="btn-div m-5 p-5">
             <Button
               role="button"
               variant="primary"
@@ -73,7 +73,7 @@ const LoginForm = () => {
       {isSubmitted && !isLoggingIn && !isAuthenticated && (
         <div className="div-failed-login">...failed log in</div>
       )}
-    </>
+    </div>
   );
 };
 
