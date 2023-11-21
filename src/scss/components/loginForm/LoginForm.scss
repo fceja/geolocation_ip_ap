@@ -10,6 +10,10 @@ $form-font-family: sans-serif;
 $form-input-placeholder-text-color: rgb(186, 186, 186);
 $form-input-border-color: rgb(186, 186, 186);
 
+p {
+  font-size: 1.25em;
+}
+
 form {
   background-color: $form-background-color;
   color: $form-btn-text-color;

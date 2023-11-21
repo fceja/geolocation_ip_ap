@@ -29,54 +29,56 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="form-container">
-      {!isAuthenticated && (
-        <Form onSubmit={handleSubmit} className="rounded-4 p-4 fw-medium">
-          <Col className="label-email">
-            <Form.Label>Email</Form.Label>
-          </Col>
-          <Col className="input-email mb-3">
-            <Form.Control
-              type="email"
-              name="email"
-              placeholder="email"
-              onChange={handleInputChange}
-              className="rounded-3 lh-lg"
-            />
-          </Col>
-          <Col className="label-pass mt-3">
-            <Form.Label>Password</Form.Label>
-          </Col>
-          <Col className="input-pass mb-3">
-            <Form.Control
-              type="password"
-              name="password"
-              placeholder="password"
-              onChange={handleInputChange}
-              className="rounded-3 lh-lg"
-            />
-          </Col>
-          <Col className="btn-div text-center">
-            <Button
-              role="button"
-              variant="primary"
-              type="submit"
-              className="button-styles m-3 pl-2 pr-2 fs-5 fw-bold rounded-3"
-            >
-              Submit
-            </Button>
-          </Col>
-        </Form>
-      )}
-      {isSubmitted && isLoggingIn && (
-        <div className="div-loggin-in mt-1 text-center">...logging in</div>
-      )}
-      {isSubmitted && !isLoggingIn && !isAuthenticated && (
-        <div className="div-failed-login mt-1 text-center text-danger">
-          ...failed log in
-        </div>
-      )}
-    </div>
+    <><p> Geolocation App</p>
+      <div className="form-container">
+        {!isAuthenticated && (
+          <Form onSubmit={handleSubmit} className="rounded-4 p-4 fw-medium">
+            <Col className="label-email">
+              <Form.Label>Email</Form.Label>
+            </Col>
+            <Col className="input-email mb-3">
+              <Form.Control
+                type="email"
+                name="email"
+                placeholder="email"
+                onChange={handleInputChange}
+                className="rounded-3 lh-lg"
+              />
+            </Col>
+            <Col className="label-pass mt-3">
+              <Form.Label>Password</Form.Label>
+            </Col>
+            <Col className="input-pass mb-3">
+              <Form.Control
+                type="password"
+                name="password"
+                placeholder="password"
+                onChange={handleInputChange}
+                className="rounded-3 lh-lg"
+              />
+            </Col>
+            <Col className="btn-div text-center">
+              <Button
+                role="button"
+                variant="primary"
+                type="submit"
+                className="button-styles m-3 pl-2 pr-2 fs-5 fw-bold rounded-3"
+              >
+                Login
+              </Button>
+            </Col>
+          </Form>
+        )}
+        {isSubmitted && isLoggingIn && (
+          <div className="div-loggin-in mt-1 text-center">...logging in</div>
+        )}
+        {isSubmitted && !isLoggingIn && !isAuthenticated && (
+          <div className="div-failed-login mt-1 text-center text-danger">
+            ...failed log in
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 
