@@ -11,13 +11,10 @@ After logging in, clicking the 'Get My Location' button will retreive users geo-
 ![](https://shields.io/badge/OS-MacOS-informational?style=flat&logo=Apple&logoColor=white&color=eaeaea)
 
 - **Note: ```.env``` file with environment variables has been omitted. </br>
-  - It will render ```loginForm``` component useless.
-  - ```loginForm``` component was implemented to minimize unecessary pings to subscription-based endpoints when taking the app to production. 
+  - If installed locally, it will render ```loginForm``` component ineffective.
+  - ```loginForm``` component was implemented to minimize unecessary requests to subscription-based endpoints when taking the app to production.
+  - For implementation <b>without</b> ```loginForm``` component, view this repo -> [geolocation_ip_app](https://github.com/fceja/geolocation_ip_app/tree/main)
     
-- **Note: If installing locally, you can bypass the ```loginForm``` component by following the instructions in ```Bypass LoginForm Component``` section
-before completing step 4.
- </br>
-
 1. Clone repo
 2. Install Node
    - ```https://nodejs.org/en/download```
@@ -27,17 +24,6 @@ before completing step 4.
 4. At project root, run:
    - ```npm start```
    - App will be served on ```http://localhost:8080/```
-
-# Bypass LoginForm Component
-  - modify the following file: ```/src/ts/context/AuthContext.tsx```
-    - change -> ```const [isAuthenticated, setIsAuthenticated] = useState(false);```
-    - to  -> ```const [isAuthenticated, setIsAuthenticated] = useState(true);```
-  - create a free account at [ipinfo](https://ipinfo.io/), this will give you an api token.
-    - create ```.env``` file at root project directory with following variables:
-      - ```REACT_APP_IP_INFO_API_URL="https://ipinfo.io/json"```
-      - ```REACT_APP_IP_INFO_API_TOKEN="{ipinfo_token}"```
-        - replace ```{ipinfo_token}``` with actual value
-      - ```REACT_APP_AXIOS_TIMEOUT="15000"```
 
 # Technologies & Tools
 <p>
