@@ -11,19 +11,17 @@ const Geolocation = lazy(() => import("@components/geolocation/Geolocation"));
 const App: React.FC = () => {
   return (
     <AuthProvider>
-      <div className="app">
-        <BrowserRouter>
-          <Routes>
-            <Route path="/*" element={<Navigate to="/" />} />
-            <Route path="/" element={<LoginForm />} />
-          </Routes>
-        </BrowserRouter>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/*" element={<Navigate to="/" />} />
+          <Route path="/" element={<LoginForm />} />
+        </Routes>
+      </BrowserRouter>
 
-        <Suspense fallback={<Loading />}>
-          <Geolocation />
-        </Suspense>
-      </div>
-    </AuthProvider>
+      <Suspense fallback={<Loading />}>
+        <Geolocation />
+      </Suspense>
+    </AuthProvider >
   );
 };
 

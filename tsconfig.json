@@ -6,7 +6,11 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": false,
@@ -16,18 +20,34 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "paths": {
-      "@/*": ["./src/*"],
-      "@api/*": ["./src/ts/api/*"],
-      "@components/*": ["./src/ts/components/*"],
-      "@context/*": ["./src/ts/context/*"],
-      "@scss/*": ["./src/scss/*"],
-      "@appTypes/*": ["./src/ts/types/*"],
-      "@utils/*": ["./src/ts/utils/*"]
+      "@/*": [
+        "./src/*"
+      ],
+      "@api/*": [
+        "./src/ts/api/*"
+      ],
+      "@components/*": [
+        "./src/ts/components/*"
+      ],
+      "@context/*": [
+        "./src/ts/context/*"
+      ],
+      "@scss/*": [
+        "./src/scss/*"
+      ],
+      "@appTypes/*": [
+        "./src/ts/types/*"
+      ],
+      "@utils/*": [
+        "./src/ts/utils/*"
+      ]
     },
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
     "target": "es5"
   },
-  "include": ["src"]
+  "include": [
+    "src"
+  ]
 }

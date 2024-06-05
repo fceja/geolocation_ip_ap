@@ -1,57 +1,89 @@
-$form-background-color: rgb(124, 164, 185);
-$form-btn-background-color: rgb(68, 94, 107);
+$form-background-color: rgb(255, 255, 255);
+
+$form-btn-background-color: rgba(68, 94, 107, 0.367);
 $form-btn-border-color: white;
 $form-btn-text-color: white;
 $form-btn-active-background-color: rgb(216, 216, 216);
-$form-btn-active-text-color: white;
 $form-btn-hover-border-color: rgb(68, 94, 107);
 $form-btn-hover-background-color: white;
-$form-font-family: sans-serif;
-$form-input-placeholder-text-color: rgb(186, 186, 186);
-$form-input-border-color: rgb(186, 186, 186);
 
-p {
-  font-size: 1.25em;
+$form-input-placeholder-text-color: rgba(186, 186, 186, 0.608);
+$form-input-border-color: rgba(144, 144, 144, 0.561);
+
+
+.main-form-container {
+  width: 100%;
 }
 
-form {
-  background-color: $form-background-color;
-  color: $form-btn-text-color;
-  font-family: $form-font-family;
-  font-size: 1.25em;
+.app-title {
+  padding: 0;
+  margin: 0;
+
+  color: black;
+  font-size: 1.75em;
+  font-weight: 600;
+  letter-spacing: -.5px;
+  text-align: center;
+}
+
+.greeting {
+  color: rgba(127, 127, 127, 0.687);
+  font-size: 1.3em;
+  font-weight: 300;
+  letter-spacing: -.9px;
+  text-align: center;
+}
+
+.label-email,
+.label-pass {
+  color: black;
+  font-weight: 200;
+  letter-spacing: 1.2px;
+
+}
+
+hr {
+  color: black;
 }
 
 .form-container {
-  max-width: min(90%, 400px);
-  width: 90%;
+  color: black;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  padding: 0;
+  margin: 0;
+
+  width: 100%;
+  background-color: $form-background-color;
 }
 
-input {
-  border: 1px solid $form-input-border-color;
-  width: 100%;
+.input-email-form,
+.input-pass-form {
+  border: 1.2px solid $form-input-border-color;
 }
 
 .form-container input::placeholder {
   color: $form-input-placeholder-text-color;
 }
 
-button {
-  min-height: 50px;
-  min-width: 150px;
-}
-
 .button-styles {
+  color: $form-btn-text-color;
+
   background: $form-btn-background-color;
   border-color: $form-btn-border-color;
   border-style: solid;
   border-width: 0.125rem;
+
   box-sizing: border-box;
-  color: $form-btn-text-color;
   display: inline-block;
-  font-family: $form-font-family;
   letter-spacing: 0.1em;
-  position: relative;
   transition: transform 0.2s;
+
+  width: 100%;
 }
 
 .button-styles:not(:disabled):hover {
@@ -59,19 +91,10 @@ button {
   border-color: $form-btn-hover-border-color;
   border-width: 0.125rem;
   color: $form-btn-background-color;
-  transform: scale(1.125);
+  transform: scale(1.01);
 }
 
 .button-styles:not(:hover):active,
 .button-styles:hover:active {
   background-color: $form-btn-active-background-color;
-  color: $form-btn-active-text-color;
-}
-
-.button-styles:focus:before {
-  content: "";
-  left: calc(-1 * 0.375rem);
-  pointer-events: none;
-  position: absolute;
-  top: calc(-1 * 0.375rem);
 }
