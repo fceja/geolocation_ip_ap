@@ -1,7 +1,6 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
-import "@scss/components/_App.scss";
 import { AuthProvider } from "@context/AuthContext";
 import LoginForm from "./loginForm/LoginForm";
 import Loading from "./loading/Loading";

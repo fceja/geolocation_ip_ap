@@ -1,5 +1,3 @@
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
 import { ChangeEvent, useState } from "react";
 
 import { useAuth } from "@context/AuthContext";
@@ -30,37 +28,32 @@ const LoginForm = () => {
   return (
     <div className="main-form-container">
       {!isAuthenticated && (
-        <Form onSubmit={handleSubmit} className="form-container">
-          <div className="app-title d-flex justify-content-center pt-3">Geolocation App</div>
-          <div className="greeting d-flex justify-content-center pb-3"> Please enter credentials to sign in.</div>
+        <form
+          onSubmit={handleSubmit}
+          className="form-container">
+          <span className="app-title pt-3">Geolocation App</span>
+          <span className="greeting pb-3"> Please enter credentials to sign in.</span>
           <hr></hr>
-          <label className="label-email">Email</label>
-          <Form.Control
-            className="input-email-form rounded-3 "
+          <label className="label-email mt-3 mb-1">Email</label>
+          <input
+            className="input-email-form py-2"
             name="email"
             onChange={handleInputChange}
             placeholder="email"
             required
             type="email"
           />
-          <Form.Label className="label-pass mt-3">Password</Form.Label>
-          <Form.Control
+          <label className="label-pass mt-3 mb-1">Password</label>
+          <input
             type="password"
             name="password"
             placeholder="password"
             onChange={handleInputChange}
-            className="input-pass-form mb-3 rounded-3 lh-lg"
+            className="input-pass-form py-2 "
             required
           />
-          <Button
-            role="button"
-            variant="primary"
-            type="submit"
-            className="button-styles rounded-3"
-          >
-            Login
-          </Button>
-        </Form>
+          <button type="submit" className="button-styles mt-3">Login</button>
+        </form>
       )
       }
       {
