@@ -31,12 +31,12 @@ const LoginForm = () => {
         <form
           onSubmit={handleSubmit}
           className="form-container">
-          <span className="app-title pt-3">Geolocation App</span>
-          <span className="greeting pb-3"> Please enter credentials to sign in.</span>
+          <span className="app-title pt-3">Geolocation & IP App</span>
+          <span className="greeting pb-3"> Please enter credentials to login.</span>
           <hr></hr>
           <label className="label-email mt-3 mb-1">Email</label>
           <input
-            className="input-email-form py-2"
+            className="input-email-form py-1"
             name="email"
             onChange={handleInputChange}
             placeholder="email"
@@ -49,9 +49,10 @@ const LoginForm = () => {
             name="password"
             placeholder="password"
             onChange={handleInputChange}
-            className="input-pass-form py-2 "
+            className="input-pass-form py-1"
             required
           />
+          {/* <button type="submit" className="button-styles mt-3">Login</button> */}
           <button type="submit" className="button-styles mt-3">Login</button>
         </form>
       )

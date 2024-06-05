@@ -1,15 +1,14 @@
 $form-background-color: rgb(255, 255, 255);
 
+$form-btn-hover-background-color: rgba(202, 202, 202, 0.2);
 $form-btn-background-color: rgba(68, 94, 107, 0.367);
 $form-btn-border-color: white;
-$form-btn-text-color: white;
-$form-btn-active-background-color: rgb(216, 216, 216);
-$form-btn-hover-border-color: rgb(68, 94, 107);
-$form-btn-hover-background-color: white;
 
-$form-input-placeholder-text-color: rgba(186, 186, 186, 0.608);
-$form-input-border-color: rgba(144, 144, 144, 0.561);
+$form-btn-text-color: rgb(109, 109, 109);
+$form-btn-hover-border-color: rgb(30, 90, 120);
 
+$form-input-placeholder-text-color: rgba(30, 90, 120, 0.242);
+$form-input-border-color: rgba(68, 94, 107, 0.367);
 
 .main-form-container {
   height: 100%;
@@ -27,9 +26,10 @@ $form-input-border-color: rgba(144, 144, 144, 0.561);
 }
 
 .app-title {
+  color: rgb(30, 90, 120);
   font-size: 1.75em;
   font-weight: 600;
-  letter-spacing: -.5px;
+  letter-spacing: -1px;
   text-align: center;
 }
 
@@ -43,7 +43,7 @@ $form-input-border-color: rgba(144, 144, 144, 0.561);
 
 .label-email,
 .label-pass {
-  color: black;
+  color: $form-btn-text-color;
   font-weight: 200;
   letter-spacing: 1.2px;
 
@@ -62,33 +62,29 @@ hr {
 
 .form-container input::placeholder {
   color: $form-input-placeholder-text-color;
+  // color: $form-btn-hover-border-color;
 }
 
 .button-styles {
   color: $form-btn-text-color;
-
-  background: $form-btn-background-color;
-  border-color: $form-btn-border-color;
-  border-style: solid;
-  border-width: 0.125rem;
-
-  box-sizing: border-box;
-  display: inline-block;
-  letter-spacing: 0.1em;
+  padding: 4px 0 4px 0;
+  border-color: transparent;
   transition: transform 0.2s;
-
-  width: 100%;
+  letter-spacing: .5px;
 }
 
 .button-styles:not(:disabled):hover {
   background: $form-btn-hover-background-color;
   border-color: $form-btn-hover-border-color;
   border-width: 0.125rem;
-  color: $form-btn-background-color;
+  color: $form-btn-hover-border-color;
+  font-weight: 800;
+  letter-spacing: 1px;
   transform: scale(1.01);
 }
 
 .button-styles:not(:hover):active,
 .button-styles:hover:active {
-  background-color: $form-btn-active-background-color;
+  background-color: orange;
+  border-color: orange;
 }
