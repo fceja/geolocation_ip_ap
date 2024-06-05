@@ -6,17 +6,38 @@ import "@scss/components/loginForm/LoginForm.scss";
 const LoginForm = () => {
   const { isAuthenticated, isLoggingIn, isSubmitted, validateCreds } =
     useAuth();
-
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+  const [isFormDataValid, setIsFormDataValid] = useState(false);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+  const [isMissingVisible, setMissingVisible] = useState(false);
 
-  // on submit, authenticate user
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setIsButtonDisabled(false)
     validateCreds(formData);
   };
+
+  const handleHoverEnter = () => {
+    const isEmailValid = /^[^@\s]+@[^@\s]+\.(com|org|net|edu|gov)$/.test(formData.email);
+
+    if (isEmailValid && formData.password !== "") {
+      setMissingVisible(false)
+      setIsFormDataValid(true)
+      setIsButtonDisabled(false);
+
+    } else {
+      setMissingVisible(true)
+      setIsFormDataValid(false)
+      setIsButtonDisabled(true);
+    }
+
+  }
+  const handleHoverLeave = () => {
+    setMissingVisible(false)
+  }
 
   const handleInputChange = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -52,8 +73,23 @@ const LoginForm = () => {
             className="input-pass-form py-1"
             required
           />
-          {/* <button type="submit" className="button-styles mt-3">Login</button> */}
-          <button type="submit" className="button-styles mt-3">Login</button>
+          <div
+            className=" mt-4"
+            onMouseEnter={handleHoverEnter}
+            onMouseLeave={handleHoverLeave}
+          >
+            <button
+              type="submit"
+              className={`button-styles w-100 ${isFormDataValid ? "btn-valid" : "btn-invalid"}`}
+              disabled={isButtonDisabled}
+            >
+              Login
+            </button>
+          </div>
+          <div
+            className="missing-fields mt-1"
+            style={{ visibility: `${isMissingVisible ? 'visible' : 'hidden'}` }}>...missing or invalid fields
+          </div>
         </form>
       )
       }
@@ -64,7 +100,7 @@ const LoginForm = () => {
       }
       {
         isSubmitted && !isLoggingIn && !isAuthenticated && (
-          <div className="div-failed-login mt-1 text-center text-danger">...failed log in</div>
+          <div className="div-failed-login mt-1 text-center text-danger">...failed login attempt</div>
         )
       }
     </div >

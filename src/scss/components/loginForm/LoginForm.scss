@@ -6,8 +6,9 @@ $form-btn-border-color: white;
 
 $form-btn-text-color: rgb(109, 109, 109);
 $form-btn-hover-border-color: rgb(30, 90, 120);
+$form-btn-initial-hover-border-color: rgba(37, 79, 100, 0.509);
 
-$form-input-placeholder-text-color: rgba(30, 90, 120, 0.242);
+$form-input-placeholder-text-color: rgba(47, 72, 85, 0.353);
 $form-input-border-color: rgba(68, 94, 107, 0.367);
 
 .main-form-container {
@@ -62,29 +63,37 @@ hr {
 
 .form-container input::placeholder {
   color: $form-input-placeholder-text-color;
-  // color: $form-btn-hover-border-color;
 }
 
 .button-styles {
   color: $form-btn-text-color;
+  background-color: rbg(255, 255, 255);
   padding: 4px 0 4px 0;
-  border-color: transparent;
+  border-style: solid;
+  border-color: $form-btn-initial-hover-border-color;
   transition: transform 0.2s;
   letter-spacing: .5px;
 }
 
-.button-styles:not(:disabled):hover {
-  background: $form-btn-hover-background-color;
+.btn-valid:hover {
+  border-style: solid;
   border-color: $form-btn-hover-border-color;
-  border-width: 0.125rem;
+  background-color: $form-btn-hover-background-color;
   color: $form-btn-hover-border-color;
-  font-weight: 800;
-  letter-spacing: 1px;
-  transform: scale(1.01);
+  font-weight: 600;
 }
 
-.button-styles:not(:hover):active,
-.button-styles:hover:active {
-  background-color: orange;
-  border-color: orange;
+.btn-invalid:hover {
+  border-style: solid;
+  border-color: rgb(142, 0, 0);
+  background-color: rbg(255, 255, 255);
+  color: rgb(142, 0, 0);
+  font-weight: 600;
+}
+
+.missing-fields {
+  color: rgba(142, 0, 0, 0.614);
+  font-weight: 200;
+  font-size: .9em;
+  text-align: center;
 }
