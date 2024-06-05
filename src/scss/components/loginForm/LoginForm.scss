@@ -66,27 +66,26 @@ hr {
 }
 
 .button-styles {
-  color: $form-btn-text-color;
-  background-color: rbg(255, 255, 255);
-  padding: 4px 0 4px 0;
-  border-style: solid;
+  background-color: $form-background-color;
   border-color: $form-btn-initial-hover-border-color;
-  transition: transform 0.2s;
+  border-style: solid;
+  color: $form-btn-text-color;
+  font-weight: 500;
   letter-spacing: .5px;
+  padding: 4px 0 4px 0;
+  transition: transform 0.2s;
 }
 
 .btn-valid:hover {
-  border-style: solid;
   border-color: $form-btn-hover-border-color;
-  background-color: $form-btn-hover-background-color;
+  border-style: solid;
   color: $form-btn-hover-border-color;
   font-weight: 600;
 }
 
 .btn-invalid:hover {
-  border-style: solid;
   border-color: rgb(142, 0, 0);
-  background-color: rbg(255, 255, 255);
+  border-style: solid;
   color: rgb(142, 0, 0);
   font-weight: 600;
 }
@@ -96,4 +95,14 @@ hr {
   font-weight: 200;
   font-size: .9em;
   text-align: center;
+}
+
+.div-logging-in {
+  text-align: center;
+  color: rgba(0, 109, 142, 0.614);
+}
+
+.div-failed-login {
+  text-align: center;
+  color: rgba(142, 0, 0, 0.614);
 }

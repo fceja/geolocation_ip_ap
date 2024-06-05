@@ -47,7 +47,7 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="main-form-container">
+    <div className="main-form-container d-flex flex-column">
       {!isAuthenticated && (
         <form
           onSubmit={handleSubmit}
@@ -91,18 +91,13 @@ const LoginForm = () => {
             style={{ visibility: `${isMissingVisible ? 'visible' : 'hidden'}` }}>...missing or invalid fields
           </div>
         </form>
-      )
-      }
-      {
-        isSubmitted && isLoggingIn && (
-          <div className="div-loggin-in mt-1 text-center">...logging in</div>
-        )
-      }
-      {
-        isSubmitted && !isLoggingIn && !isAuthenticated && (
-          <div className="div-failed-login mt-1 text-center text-danger">...failed login attempt</div>
-        )
-      }
+      )}
+      {isSubmitted && isLoggingIn && (
+        <div className="div-logging-in mt-1r">...logging in</div>
+      )}
+      {isSubmitted && !isLoggingIn && !isAuthenticated && (
+        <div className="div-failed-login mt-1">...failed login attempt</div>
+      )}
     </div >
   );
 };
