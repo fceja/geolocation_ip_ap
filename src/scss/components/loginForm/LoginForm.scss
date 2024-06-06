@@ -63,6 +63,7 @@ hr {
 
 .form-container input::placeholder {
   color: $form-input-placeholder-text-color;
+  padding: 0 0 0 5px;
 }
 
 .button-styles {

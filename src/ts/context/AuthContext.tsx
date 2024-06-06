@@ -10,26 +10,26 @@ import { authUser } from "@api/userAuth/userAuthApi";
 const AuthContext = createContext<AuthContextInterface | undefined>(undefined);
 
 export const AuthProvider: FC<AuthProviderTypeProps> = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isLoggingIn, setIsLoggingIn] = useState(false);
+  const [isAuthd, setIsAuthd] = useState(false);
+  const [isAuthTriggered, setIsAuthTriggered] = useState(false);
+  const [isAuthProcessing, setIsAuthProcessing] = useState(false);
 
   const validateCreds = async (payloadData: PayloadType): Promise<void> => {
-    setIsSubmitted(true);
-    setIsLoggingIn(true);
+    setIsAuthTriggered(true);
+    setIsAuthProcessing(true);
 
     const isAuthd = await authUser(payloadData);
     if (isAuthd) {
-      setIsAuthenticated(true);
+      setIsAuthd(true);
     } else {
-      setIsAuthenticated(false);
+      setIsAuthd(false);
     }
-    setIsLoggingIn(false);
+    setIsAuthProcessing(false);
   };
 
   return (
     <AuthContext.Provider
-      value={{ isAuthenticated, isLoggingIn, isSubmitted, validateCreds }}
+      value={{ isAuthd, isAuthProcessing, isAuthTriggered, validateCreds }}
     >
       {children}
     </AuthContext.Provider>

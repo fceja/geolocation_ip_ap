@@ -36,8 +36,8 @@ export type AuthProviderTypeProps = {
 
 //interfaces
 export interface AuthContextInterface {
-  isAuthenticated: boolean;
-  isLoggingIn: boolean;
-  isSubmitted: boolean;
+  isAuthd: boolean;
+  isAuthProcessing: boolean;
+  isAuthTriggered: boolean;
   validateCreds: (formData: FormDataType) => Promise<void>;
 }

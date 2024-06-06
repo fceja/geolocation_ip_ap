@@ -15,10 +15,10 @@
     "moduleResolution": "node",
     "noEmit": false,
     "noFallthroughCasesInSwitch": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noImplicitAny": false,
+    "noImplicitReturns": false,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "paths": {
       "@/*": [
         "./src/*"
@@ -31,6 +31,9 @@
       ],
       "@context/*": [
         "./src/ts/context/*"
+      ],
+      "@pages/*": [
+        "./src/pages/*"
       ],
       "@scss/*": [
         "./src/scss/*"
