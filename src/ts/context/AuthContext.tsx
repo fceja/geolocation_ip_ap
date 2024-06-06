@@ -1,6 +1,6 @@
 import { createContext, FC, ReactNode, useContext, useState } from "react";
 
-import { PayloadT } from "@components/loginForm/LoginForm"
+import { PayloadT } from "@/ts/components/main/LoginForm"
 import { authUser } from "@api/userAuth/userAuthApi";
 
 interface AuthContextInterface {

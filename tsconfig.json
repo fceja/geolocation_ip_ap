@@ -29,6 +29,9 @@
       "@components/*": [
         "./src/ts/components/*"
       ],
+      "@common/*": [
+        "./src/ts/commmon/*"
+      ],
       "@context/*": [
         "./src/ts/context/*"
       ],

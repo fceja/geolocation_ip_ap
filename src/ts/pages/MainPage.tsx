@@ -1,9 +1,10 @@
 import { useAuth } from "@context/AuthContext";
-import Geolocation from "@components/geolocation/Geolocation";
-import LoginForm from "@components/loginForm/LoginForm";
+import Geolocation from "@/ts/components/main/Geolocation";
+import LoginForm from "@/ts/components/main/LoginForm";
 
 export const MainPage = () => {
     const { isAuthd } = useAuth();
+
     return (
         <>
             {!isAuthd ? <LoginForm /> : <Geolocation />}
