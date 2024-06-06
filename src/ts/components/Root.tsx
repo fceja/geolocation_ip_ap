@@ -1,5 +1,5 @@
 import "@scss/components/_Root.scss";
-import App from "./_App";
+import App from "@components/App";
 
 const Root = () => {
   return <App />;

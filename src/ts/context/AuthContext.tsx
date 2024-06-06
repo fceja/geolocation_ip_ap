@@ -7,7 +7,7 @@ interface AuthContextInterface {
   isAuthd: boolean;
   isAuthTriggered: boolean;
   isAuthProcessing: boolean;
-  validateCreds: (formData: PayloadT) => Promise<void>;
+  performAuth: (formData: PayloadT) => Promise<void>;
 }
 
 type AuthProviderTypeProps = {
@@ -21,7 +21,7 @@ export const AuthProvider: FC<AuthProviderTypeProps> = ({ children }) => {
   const [isAuthTriggered, setIsAuthTriggered] = useState(false);
   const [isAuthProcessing, setIsAuthProcessing] = useState(false);
 
-  const validateCreds = async (payloadData: PayloadT): Promise<void> => {
+  const performAuth = async (payloadData: PayloadT): Promise<void> => {
     setIsAuthTriggered(true);
     setIsAuthProcessing(true);
 
@@ -36,7 +36,7 @@ export const AuthProvider: FC<AuthProviderTypeProps> = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ isAuthd, isAuthProcessing, isAuthTriggered, validateCreds }}
+      value={{ isAuthd, isAuthProcessing, isAuthTriggered, performAuth }}
     >
       {children}
     </AuthContext.Provider>

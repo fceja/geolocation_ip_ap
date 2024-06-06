@@ -1,7 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
 import { AuthProvider } from "@context/AuthContext";
-import MainPage from "../page/MainPage"
+import MainPage from "@pages/MainPage"
 
 const App: React.FC = () => {
   return (

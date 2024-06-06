@@ -33,7 +33,7 @@
         "./src/ts/context/*"
       ],
       "@pages/*": [
-        "./src/pages/*"
+        "./src/ts/pages/*"
       ],
       "@scss/*": [
         "./src/scss/*"

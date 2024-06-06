@@ -13,16 +13,10 @@ const LoginForm = () => {
     email: "",
     password: "",
   });
-  const { isAuthd, isAuthProcessing, isAuthTriggered, validateCreds } = useAuth();
+  const { isAuthd, isAuthProcessing, isAuthTriggered, performAuth } = useAuth();
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const [isFormDataValid, setIsFormDataValid] = useState(false);
   const [isMissingVisible, setMissingVisible] = useState(false);
-
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setIsButtonDisabled(false)
-    validateCreds(formData);
-  };
 
   const handleHoverEnter = () => {
     const isEmailValid = /^[^@\s]+@[^@\s]+\.(com|org|net|edu|gov)$/.test(formData.email);
@@ -48,6 +42,12 @@ const LoginForm = () => {
   ) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setIsButtonDisabled(false)
+    performAuth(formData);
   };
 
   return (
