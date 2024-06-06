@@ -1,0 +1,26 @@
+.loading {
+    display: block;
+    width: 100%;
+    color: white;
+    margin: 20px 0 0 0;
+}
+
+.wave {
+    color: black;
+    font-size: 1.2em;
+    letter-spacing: -.7px;
+    animation: wave 1s infinite;
+}
+
+@keyframes wave {
+
+    0%,
+    60%,
+    100% {
+        transform: translateY(0);
+    }
+
+    30% {
+        transform: translateY(-3.5px);
+    }
+}
