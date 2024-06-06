@@ -7,8 +7,6 @@ After logging in, clicking the 'Get My Location' button will retreive users geo-
 
 # Installation
 ![](https://img.shields.io/badge/Unix-informational?style=flat&logo=unix&logoColor=white&color=eaeaea)
-![](https://img.shields.io/badge/OS-Linux-informational?style=flat&logo=linux&logoColor=white&color=eaeaea)
-![](https://shields.io/badge/OS-MacOS-informational?style=flat&logo=Apple&logoColor=white&color=eaeaea)
 
 - **Note: ```.env``` file with environment variables has been omitted. </br>
   - If installed locally, it will render ```loginForm``` component ineffective.
