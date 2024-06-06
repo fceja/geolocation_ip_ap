@@ -1,15 +1,19 @@
 import { useEffect, useState } from "react";
 
-import "@scss/components/geolocation/Geolocation.scss";
-import { fetchIpInfoApiData } from "@api/ipInfo/IpInfoApi";
-import { IpDataType, LocationType } from "@appTypes/index";
-import Loading from "@components/loading/Loading";
 import { useAuth } from "@context/AuthContext";
+import "@scss/components/geolocation/Geolocation.scss";
+import { fetchIpInfoApiData, IpDataT } from "@api/ipInfo/IpInfoApi";
+import Loading from "@components/loading/Loading";
+
+type LocationType = {
+  latitude: number;
+  longitude: number;
+};
 
 const Geolocation = () => {
   const { isAuthd } = useAuth();
   const [location, setLocation] = useState<LocationType | null>(null);
-  const [ipData, setIpData] = useState<IpDataType | null>(null);
+  const [ipData, setIpData] = useState<IpDataT | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {

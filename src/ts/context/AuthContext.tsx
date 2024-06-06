@@ -1,11 +1,18 @@
-import { createContext, useContext, useState, FC } from "react";
+import { createContext, FC, ReactNode, useContext, useState } from "react";
 
-import {
-  AuthContextInterface,
-  AuthProviderTypeProps,
-  PayloadType,
-} from "@appTypes/index";
+import { PayloadT } from "@components/loginForm/LoginForm"
 import { authUser } from "@api/userAuth/userAuthApi";
+
+interface AuthContextInterface {
+  isAuthd: boolean;
+  isAuthTriggered: boolean;
+  isAuthProcessing: boolean;
+  validateCreds: (formData: PayloadT) => Promise<void>;
+}
+
+type AuthProviderTypeProps = {
+  children: ReactNode;
+};
 
 const AuthContext = createContext<AuthContextInterface | undefined>(undefined);
 
@@ -14,7 +21,7 @@ export const AuthProvider: FC<AuthProviderTypeProps> = ({ children }) => {
   const [isAuthTriggered, setIsAuthTriggered] = useState(false);
   const [isAuthProcessing, setIsAuthProcessing] = useState(false);
 
-  const validateCreds = async (payloadData: PayloadType): Promise<void> => {
+  const validateCreds = async (payloadData: PayloadT): Promise<void> => {
     setIsAuthTriggered(true);
     setIsAuthProcessing(true);
 

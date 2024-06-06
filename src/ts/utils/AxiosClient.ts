@@ -1,6 +1,10 @@
 import axios from "axios";
 
-import { AxiosClientType } from "@appTypes/index";
+type AxiosClientType = {
+  baseUrl: string;
+  timeout: number;
+  headers?: Record<string, string | number>;
+};
 
 const AxiosClient = (clientData: AxiosClientType) => {
   const { baseUrl, timeout, headers } = clientData;

@@ -3,6 +3,11 @@ import { ChangeEvent, useState } from "react";
 import { useAuth } from "@context/AuthContext";
 import "@scss/components/loginForm/LoginForm.scss";
 
+export type PayloadT = {
+  email: string;
+  password: string;
+};
+
 const LoginForm = () => {
   const [formData, setFormData] = useState({
     email: "",
