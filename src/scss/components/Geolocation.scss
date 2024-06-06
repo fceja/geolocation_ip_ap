@@ -1,10 +1,20 @@
-div.loading-div {
-  margin-top: 25px;
-}
+@import "@scss/Variables.scss";
 
-button.btn-geolocate {
-  height: 50px;
-  width: 50vw;
+.btn-geolocate {
+  width: 50%;
+  padding: 10px 10px 10px 10px;
+
+  color: $main-heading-color;
+  text-align: center;
+  font-size: 1.2em;
+  letter-spacing: -1px;
+
+  &:hover {
+    border-color: $form-btn-hover-border-color;
+    border-style: solid;
+    color: $form-btn-hover-border-color;
+    font-weight: 600;
+  }
 }
 
 .main-container {

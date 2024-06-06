@@ -36,8 +36,9 @@ const IpInfo = () => {
     }, [])
 
     return (
-        <div className="ip-data mt-5">
-            <h2>IP data</h2>
+        <div className="ip-data mt-5 p-3">
+            <h2>IP Info</h2>
+            <hr style={{ color: "black", borderWidth: "1px" }}></hr>
             {isLoading && <Loading className="ip-data" />}
             {isError &&
                 <div className="error">Error:<br />IP data is not available.<br />Daily limit reached?</div>

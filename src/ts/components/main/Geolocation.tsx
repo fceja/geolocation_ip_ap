@@ -14,7 +14,7 @@ const Geolocation = () => {
   return (
     <div className="main-container">
       <button
-        className="btn-geolocate"
+        className="btn-geolocate mt-5"
         onClick={handleBtnClick}>
         Click to retrieve location and IP
       </button>

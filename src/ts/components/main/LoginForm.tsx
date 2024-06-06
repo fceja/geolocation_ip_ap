@@ -53,7 +53,8 @@ const LoginForm = () => {
     <div className="main-form-container d-flex flex-column">
       <form
         onSubmit={handleSubmit}
-        className="form-container">
+        className="form-container"
+      >
         <span className="app-title pt-3">Geolocation & IP App</span>
         <span className="greeting pb-3"> Please enter credentials to login.</span>
         <hr></hr>

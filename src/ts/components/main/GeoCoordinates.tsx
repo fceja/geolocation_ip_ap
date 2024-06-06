@@ -37,14 +37,15 @@ const GeoCoordinates = () => {
         const timerId = setTimeout(() => {
             setIsError(true);
             setIsLoading(false);
-        }, 15000)
+        }, 30000)
 
         return () => clearTimeout(timerId)
     }, [])
 
     return (
-        <div className="geo-coords mt-5">
-            <h2>Geo Coordinates</h2>
+        <div className="geo-coords mt-5 p-3">
+            <h2>Geo-Coordinates</h2>
+            <hr style={{ color: "black", borderWidth: "1px" }}></hr>
             {isLoading && <Loading className="geo-coords" />}
             {isError &&
                 <div className="error">Error:<br />Geolocation is not available for this browser.<br />Try the latest Chrome browser?</div>

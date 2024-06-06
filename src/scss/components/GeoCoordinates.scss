@@ -1,9 +1,16 @@
+@import "@scss/Variables.scss";
+
 .geo-coords {
+    background-color: white;
+    width: 50%;
+
     h2 {
+        color: $main-heading-color;
         text-align: center;
     }
 
     p {
+        color: rgba(127, 127, 127, 0.687);
         font-size: 1.1em;
     }
 
