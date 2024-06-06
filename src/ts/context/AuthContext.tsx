@@ -1,13 +1,13 @@
 import { createContext, FC, ReactNode, useContext, useState } from "react";
 
-import { PayloadT } from "@/ts/components/main/LoginForm"
+import { FormPayloadT } from "@/ts/components/main/LoginForm"
 import { authUser } from "@api/userAuth/userAuthApi";
 
 interface AuthContextInterface {
   isAuthd: boolean;
   isAuthTriggered: boolean;
   isAuthProcessing: boolean;
-  performAuth: (formData: PayloadT) => Promise<void>;
+  performAuth: (formData: FormPayloadT) => Promise<void>;
 }
 
 type AuthProviderTypeProps = {
@@ -21,7 +21,7 @@ export const AuthProvider: FC<AuthProviderTypeProps> = ({ children }) => {
   const [isAuthTriggered, setIsAuthTriggered] = useState(false);
   const [isAuthProcessing, setIsAuthProcessing] = useState(false);
 
-  const performAuth = async (payloadData: PayloadT): Promise<void> => {
+  const performAuth = async (payloadData: FormPayloadT): Promise<void> => {
     setIsAuthTriggered(true);
     setIsAuthProcessing(true);
 

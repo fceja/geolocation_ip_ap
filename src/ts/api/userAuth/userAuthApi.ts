@@ -1,5 +1,5 @@
 import AxiosClient from "@utils/AxiosClient";
-import { PayloadT } from "@/ts/components/main/LoginForm"
+import { FormPayloadT } from "@/ts/components/main/LoginForm"
 
 const apiClient = AxiosClient({
   baseUrl: `${process.env.REACT_APP_USER_AUTH_API_URL}`,
@@ -12,7 +12,7 @@ const apiClient = AxiosClient({
   },
 });
 
-export const authUser = async (payload: PayloadT): Promise<boolean> => {
+export const authUser = async (payload: FormPayloadT): Promise<boolean> => {
   try {
     const response = await apiClient.post("/user/auth/geolocationIp", {
       email: payload.email,
