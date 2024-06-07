@@ -20,26 +20,15 @@ const LoginForm = () => {
 
   useEffect(() => {
     const isEmailValid = /^[^@\s]+@[^@\s]+\.(com|org|net|edu|gov)$/.test(formData.email);
-    if (isEmailValid && formData.password.length > 0) {
-      setIsFormDataValid(true)
-    }
-    else {
-      setIsFormDataValid(false)
-    }
+    isEmailValid && formData.password.length > 0 ? setIsFormDataValid(true) : setIsFormDataValid(false)
 
   }, [formData])
 
   const handleHoverEnter = () => {
-    if (isFormDataValid) {
-      setMissingVisible(false)
-      setIsButtonDisabled(false);
-
-    } else {
-      setMissingVisible(true)
-      setIsButtonDisabled(true);
-    }
-
+    setMissingVisible(!isFormDataValid)
+    setIsButtonDisabled(!isFormDataValid)
   }
+
   const handleHoverLeave = () => {
     setMissingVisible(false)
   }
