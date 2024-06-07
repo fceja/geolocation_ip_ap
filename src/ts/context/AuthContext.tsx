@@ -26,18 +26,13 @@ export const AuthProvider: FC<AuthProviderTypeProps> = ({ children }) => {
     setIsAuthProcessing(true);
 
     const isAuthd = await authUser(payloadData);
-    if (isAuthd) {
-      setIsAuthd(true);
-    } else {
-      setIsAuthd(false);
-    }
+    isAuthd ? setIsAuthd(true) : setIsAuthd(false);
+
     setIsAuthProcessing(false);
   };
 
   return (
-    <AuthContext.Provider
-      value={{ isAuthd, isAuthProcessing, isAuthTriggered, performAuth }}
-    >
+    <AuthContext.Provider value={{ isAuthd, isAuthProcessing, isAuthTriggered, performAuth }}>
       {children}
     </AuthContext.Provider>
   );

@@ -1,13 +1,13 @@
 @import "@scss/Variables.scss";
 
-.main-form-container {
+.form-container {
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.form-container {
+form {
   padding: 25px 45px 25px 45px;
   display: flex;
   flex-direction: column;
@@ -66,11 +66,21 @@ hr {
   transition: transform 0.2s;
 }
 
-.btn-valid:hover {
-  border-color: $form-btn-hover-border-color;
+.btn-valid {
   border-style: solid;
-  color: $form-btn-hover-border-color;
-  font-weight: 600;
+  border-width: 3px;
+  border-color: rgba(36, 140, 193, 0.822);
+  color: rgba(36, 140, 193, 0.822);
+  font-weight: 400;
+
+
+  &:hover {
+    border-color: rgb(30, 90, 120);
+    border-style: solid;
+    color: rgb(30, 90, 120);
+    color: $form-btn-hover-border-color;
+    font-weight: 600;
+  }
 }
 
 .btn-invalid:hover {

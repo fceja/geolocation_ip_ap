@@ -1,7 +1,7 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 
-import { useAuth } from "@context/AuthContext";
 import "@scss/components/LoginForm.scss";
+import { useAuth } from "@context/AuthContext";
 
 export type FormPayloadT = {
   email: string;
@@ -18,17 +18,24 @@ const LoginForm = () => {
   const [isFormDataValid, setIsFormDataValid] = useState(false);
   const [isMissingVisible, setMissingVisible] = useState(false);
 
-  const handleHoverEnter = () => {
+  useEffect(() => {
     const isEmailValid = /^[^@\s]+@[^@\s]+\.(com|org|net|edu|gov)$/.test(formData.email);
-
     if (isEmailValid && formData.password.length > 0) {
-      setMissingVisible(false)
       setIsFormDataValid(true)
+    }
+    else {
+      setIsFormDataValid(false)
+    }
+
+  }, [formData])
+
+  const handleHoverEnter = () => {
+    if (isFormDataValid) {
+      setMissingVisible(false)
       setIsButtonDisabled(false);
 
     } else {
       setMissingVisible(true)
-      setIsFormDataValid(false)
       setIsButtonDisabled(true);
     }
 
@@ -50,13 +57,10 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="main-form-container d-flex flex-column">
-      <form
-        onSubmit={handleSubmit}
-        className="form-container"
-      >
+    <div className="form-container d-flex flex-column">
+      <form onSubmit={handleSubmit}>
         <span className="app-title pt-3">Geolocation & IP App</span>
-        <span className="greeting pb-3"> Please enter credentials to login.</span>
+        <span className="greeting pb-3"> Please enter login details.</span>
         <hr></hr>
         <label className="label-email mt-3 mb-1">Email</label>
         <input
@@ -93,13 +97,13 @@ const LoginForm = () => {
           className="missing-fields mt-1"
           style={{ visibility: `${isMissingVisible ? 'visible' : 'hidden'}` }}>...missing or invalid fields
         </div>
+        {isAuthTriggered && isAuthProcessing && (
+          <div className="div-logging-in mt-1r">...logging in</div>
+        )}
+        {isAuthTriggered && !isAuthProcessing && !isAuthd && (
+          <div className="div-failed-login mt-1">...failed login attempt</div>
+        )}
       </form>
-      {isAuthTriggered && isAuthProcessing && (
-        <div className="div-logging-in mt-1r">...logging in</div>
-      )}
-      {isAuthTriggered && !isAuthProcessing && !isAuthd && (
-        <div className="div-failed-login mt-1">...failed login attempt</div>
-      )}
     </div >
   );
 };
