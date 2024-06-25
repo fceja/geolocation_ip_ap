@@ -19,21 +19,11 @@ const IpInfo = () => {
                 setIsError(true)
 
             } finally {
-
                 setIsLoading(false)
             }
         };
         fetchApiData();
     }, []);
-
-    useEffect(() => {
-        const timerId = setTimeout(() => {
-            setIsError(true);
-            setIsLoading(false);
-        }, 15000)
-
-        return () => clearTimeout(timerId)
-    }, [])
 
     return (
         <div className="ip-data mt-5 p-3">

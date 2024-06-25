@@ -14,33 +14,24 @@ const GeoCoordinates = () => {
     const [isError, setIsError] = useState(false);
 
     useEffect(() => {
-        if ("geolocation" in navigator) {
-            navigator.geolocation.getCurrentPosition(
-                (position) => {
-                    const latitude = position.coords.latitude;
-                    const longitude = position.coords.longitude;
-                    setLocation({ latitude, longitude });
-                    setIsLoading(false);
-                },
-                () => {
-                    setIsError(true);
-                    setIsLoading(false);
-                }
+        try {
+            if (!("geolocation" in navigator)) throw new Error('Browser does not support geo-location')
+
+            navigator.geolocation.getCurrentPosition((position) => {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+                setLocation({ latitude, longitude });
+                setIsLoading(false);
+            },
+                () => { throw new Error('Error retrieving geo data.') }
             );
-        } else {
+
+        } catch (error) {
+            console.error(error)
             setIsError(true);
             setIsLoading(false);
         }
     }, []);
-
-    useEffect(() => {
-        const timerId = setTimeout(() => {
-            setIsError(true);
-            setIsLoading(false);
-        }, 30000)
-
-        return () => clearTimeout(timerId)
-    }, [])
 
     return (
         <div className="geo-coords mt-5 p-3">
