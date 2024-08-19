@@ -26,7 +26,7 @@ const IpInfo = () => {
     }, []);
 
     return (
-        <div className="ip-data mt-5 p-3">
+        <div className="ip-data m-5 p-3">
             <h2>IP Info</h2>
             <hr style={{ color: "black", borderWidth: "1px" }}></hr>
             {isLoading && <Loading className="ip-data" />}
