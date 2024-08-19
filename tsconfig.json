@@ -35,6 +35,9 @@
       "@context/*": [
         "./src/ts/context/*"
       ],
+      "@hooks/*": [
+        "./src/ts/hooks/*"
+      ],
       "@pages/*": [
         "./src/ts/pages/*"
       ],

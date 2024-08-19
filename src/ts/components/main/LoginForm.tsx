@@ -2,6 +2,7 @@ import { ChangeEvent, useEffect, useState } from "react";
 
 import "@scss/components/LoginForm.scss";
 import { useAuth } from "@context/AuthContext";
+import useCheckAutoFill from "@hooks/useCheckAutoFill"
 
 export type FormPayloadT = {
   email: string;
@@ -13,10 +14,15 @@ const LoginForm = () => {
     email: "",
     password: "",
   });
+  const { autoEmail, autoPassword } = useCheckAutoFill()
   const { isAuthd, isAuthProcessing, isAuthTriggered, performAuth } = useAuth();
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const [isFormDataValid, setIsFormDataValid] = useState(false);
   const [isMissingVisible, setMissingVisible] = useState(false);
+
+  useEffect(() => {
+    if (autoEmail || autoPassword) { setFormData({ email: autoEmail, password: autoPassword }); }
+  }, [autoEmail, autoPassword])
 
   useEffect(() => {
     const isEmailValid = /^[^@\s]+@[^@\s]+\.(com|org|net|edu|gov)$/.test(formData.email);
