@@ -6,9 +6,7 @@ export const MainPage = () => {
     const { isAuthd } = useAuth();
 
     return (
-        <>
-            {!isAuthd ? <LoginForm /> : <Geolocation />}
-        </>
+        <>{!isAuthd ? <LoginForm /> : <Geolocation />}</>
     )
 }
 
