@@ -10,3 +10,20 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+span.blur-overlay {
+  position: relative;
+  display: inline-block;
+}
+
+span.blur-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(86, 1, 1, 0.119);
+  pointer-events: none;
+  backdrop-filter: blur(4px);
+}

@@ -4,6 +4,9 @@ import "@scss/components/IpInfo.scss"
 import { fetchIpInfoApiData, IpDataT } from "@api/ipInfo/IpInfoApi";
 import Loading from "@/ts/common/components/Loading";
 
+
+const isBlurred = process.env.REACT_APP_IS_SENSITIVE === "true" ? true : false
+
 const IpInfo = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [ipData, setIpData] = useState<IpDataT | null>(null);
@@ -26,7 +29,7 @@ const IpInfo = () => {
     }, []);
 
     return (
-        <div className="ip-data m-5 p-3">
+        <div className="ip-data-container m-5 p-3">
             <h2>IP Info</h2>
             <hr style={{ color: "black", borderWidth: "1px" }}></hr>
             {isLoading && <Loading className="ip-data" />}
@@ -34,12 +37,24 @@ const IpInfo = () => {
                 <div className="error">Error:<br />IP data is not available.<br />Daily limit reached?</div>
             }
             {ipData &&
-                <span className="d-flex flex-column align-items-center">
-                    <p>IP: {`${ipData.ip}`}</p>
-                    <p>Country: {`${ipData.country}`}</p>
-                    <p>City: {`${ipData.city}`}</p>
-                    <p>region: {`${ipData.region}`}</p>
-                </span>
+                <div className="ip-data">
+                    <div>
+                        <span className="title">IP:</span>
+                        <span className={`${isBlurred ? "blur-overlay" : ""}`}><span>{`${ipData.ip}`}</span></span>
+                    </div>
+                    <div>
+                        <span className="title">Country:</span>
+                        <span>{`${ipData.country}`}</span>
+                    </div>
+                    <div>
+                        <span className="title">City:</span>
+                        <span className={`${isBlurred ? "blur-overlay" : ""}`}><span>{`${ipData.city}`}</span></span>
+                    </div>
+                    <div>
+                        <span className="title">Region:</span>
+                        <span className=""><span>{`${ipData.region}`}</span></span>
+                    </div>
+                </div>
             }
         </div>
     )

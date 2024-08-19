@@ -9,13 +9,19 @@
         text-align: center;
     }
 
-    p {
-        color: rgba(127, 127, 127, 0.687);
+    span {
+        color: rgba(102, 101, 101, 0.687);
         font-size: 1.1em;
+
+        margin: 3px 0;
     }
 
     .error {
         color: rgb(169, 0, 0);
         text-align: center;
     }
+}
+
+span.title {
+    margin: 0 10px 0 0;
 }

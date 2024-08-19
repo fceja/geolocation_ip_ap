@@ -8,6 +8,8 @@ type LocationType = {
     longitude: number;
 };
 
+const isBlurred = process.env.REACT_APP_IS_SENSITIVE === "true" ? true : false
+
 const GeoCoordinates = () => {
     const [location, setLocation] = useState<LocationType | null>(null);
     const [isLoading, setIsLoading] = useState(true);
@@ -43,8 +45,14 @@ const GeoCoordinates = () => {
             }
             {location && (
                 <span className="d-flex flex-column align-items-center">
-                    <p>Latitude: {location.latitude}</p>
-                    <p>Longitude: {location.longitude}</p>
+                    <div>
+                        <span className="title">Latitude:</span>
+                        <span className={`${isBlurred ? "blur-overlay" : ""}`}>{location.latitude}</span>
+                    </div>
+                    <div>
+                        <span className="title">Longitude:</span>
+                        <span className={`${isBlurred ? "blur-overlay" : ""}`}>{location.longitude}</span>
+                    </div>
                 </span>
             )}
         </div>
